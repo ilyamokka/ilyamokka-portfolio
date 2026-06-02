@@ -4,13 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ilyamokka</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <title>ilyamokka's portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <script>
+    class PictureCard extends HTMLElement {
+      connectedCallback() {
+        const src = this.getAttribute('src');
+        const width = this.getAttribute('w');
+        const height = this.getAttribute('h');
+        const caption = this.getAttribute('cap');
+        const fontsize = this.getAttribute('fs');
+        var rl = this.getAttribute('rl');
+        const href = this.getAttribute('href');
+        if (!rl) rl = "nowhere";
+        if (href) this.innerHTML = `<div class="image-card move-${rl}" style="display:block;margin:auto;width: fit-content;
+height: fit-content;"><a href="${href}"><img src="${src}" style="width: ${width}; height: ${height};"></a><p class="image-text centered-at-the-bottom" style="font-size:${fontsize};">${caption}</p></div>`;
+        else this.innerHTML = `<div class="image-card move-${rl}" style="display:block;margin:auto;width: fit-content;
+height: fit-content;"><img src="${src}" style="width: ${width}; height: ${height};"><p class="image-text centered-at-the-bottom" style="font-size:${fontsize};">${caption}</p></div>`;
+      }
+    }
+    customElements.define('picture-card', PictureCard);
+    </script>
   </head>
   <body>
     <main>
-        <h1>Hi! I'm ilyamokka</h1>  
+      <div class="centralized-column">
+        <p class="small" style="margin: 2vw;">Hi! I'm ilyamokka</p>
+        <div>
+          <img src="images/meltdown-screenshake.gif" alt="Giant explosion" width="60%">
+          <p text-align="center" class="big centered">I&nbsp;MAKE&nbsp;GAMES<br>LOOK&nbsp;GOOD</p>
+        </div>
+      </div>
+
+      <div class="navbar">
+        <a href="#characters" class="link">Characters</a>
+        <a href="#environments" class="link">Environments</a>
+        <a href="#splashscreens" class="link">Splash screens</a>
+        <a href="#ui" class="link">UI</a>
+        <a href="#contact" class="link">Contact me</a>
+      </div>
+
+      <p id="characters" text-align="left" class="big">Characters</p>
+      <div class="gallery">
+        <picture-card src="images/characters/alley-figure-final.gif" w="45vw" cap="See more cutscenes" fs="2vw" rl="right" href="characters.html#cutscenes"></picture-card>
+        <picture-card src="images/characters/run-cycle-solo.gif" w="35vw" cap="See more character actions" fs="2vw" rl="left" href="characters.html#actions"></picture-card>
+        <picture-card src="images/characters/giraffe-christmas.gif" w="25vw" cap="See more stickers" fs="2vw" rl="right" href="characters.html#stickers"></picture-card>
+        <picture-card src="images/characters/modular-mai.gif" w="35vw" cap="See more portraits" fs="2vw" href="characters.html#portraits"></picture-card>
+        <picture-card src="images/characters/statemachine.gif" w="25vw" cap="See more statemachines" fs="2vw" rl="left" href="characters.html#statemachines"></picture-card>
+      </div>
+
+      <p id="environments" text-align="left" class="big">Environments</p>
+      <div class="gallery">
+        <picture-card src="images/environments/cemetery.png" w="40vw" cap="See more" fs="2vw" rl="right" href="environments.html"></picture-card>
+        <picture-card src="images/environments/construction.png" w="40vw" cap="See more" fs="2vw" rl="left" href="environments.html"></picture-card>
+        <picture-card src="images/environments/ripples.gif" w="40vw" cap="See more" fs="2vw" rl="right" href="environments.html"></picture-card>
+        <picture-card src="images/environments/monument.png" w="40vw" cap="See more" fs="2vw" rl="left" href="environments.html"></picture-card>
+      </div>
+
+      <p id="splashscreens" text-align="left" class="big">Splash screens</p>
+      <div class="gallery">
+        <picture-card src="images/splashscreens/abilities.gif" w="40vw" cap="See more" fs="2vw" rl="right" href="environments.html"></picture-card>
+        <picture-card src="images/splashscreens/yatai.png" w="40vw" cap="See more" fs="2vw" rl="left" href="splashscreens.html"></picture-card>
+        <picture-card src="images/splashscreens/sakura.png" w="40vw" cap="See more" fs="2vw" rl="right" href="splashscreens.html"></picture-card>
+        <picture-card src="images/splashscreens/copper-dragon.png" w="40vw" cap="See more" fs="2vw" rl="left" href="splashscreens.html"></picture-card>
+      </div>
+
+      <p id="ui" text-align="left" class="big">UI</p>
+      <div class="gallery">
+        <picture-card src="images/ui/phone-mockup.gif" w="50vw" cap="See more" fs="2vw" href="environments.html"></picture-card>
+      </div>
+
+      
+      <p id="contact" class="big">Contact me</p>
+
+      <div class="centralized-column">
+        <p class="small" style="margin-top: 4vw; margin-bottom: 4vw;"><a href="mailto:commission@ilyamokka.com" class="inline-link">commission@ilyamokka.com</a><br>or<br>@ilyamokka on Discord, <a href="https://www.artstation.com/ilyamokka" class="inline-link">ArtStation</a>, <a href="https://www.reddit.com/user/ilyamokka/submitted/" class="inline-link">Reddit</a>, <a href="https://x.com/ilyamokka" class="inline-link">X</a>, and <a href="https://bsky.app/profile/ilyamokka.bsky.social" class="inline-link">Bluesky</a></p>
+        <p class="small" style="margin-bottom: 10vw;">If you have a budget, a deadline, and a reference board, nice!<br>If not, we'll figure it out.</p>
+        <p class="small">2026 © All rights reserved</p>
+      </div>
     </main>
     <script src="index.js"></script>
   </body>

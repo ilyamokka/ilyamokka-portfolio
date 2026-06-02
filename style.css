@@ -1,0 +1,207 @@
+@font-face {
+  font-family: OutfitRegular;
+  src: url(fonts/Outfit-Regular.ttf);
+}
+
+@font-face {
+  font-family: OutfitBold;
+  src: url(fonts/Outfit-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: Skyfall;
+  src: url(fonts/SkyFall\ Done.ttf);
+}
+
+* {
+  scroll-behavior: smooth;
+  scrollbar-color: white #171826;
+  scrollbar-width: thin;
+  transition: all 0.1s ease-out;
+}
+
+html {
+  background-color: #171826;
+}
+
+b {
+    font-family: OutfitBold !important;
+}
+
+img {
+  image-rendering: pixelated;
+  vertical-align: bottom;
+
+  object-fit: cover;
+}
+
+.move-nowhere:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+  z-index: 999;
+
+  opacity: 1;
+
+  box-shadow: 1vw 1vw 2vw rgba(0, 0, 0, 1);
+}
+
+.move-nowhere:active {
+  transform: scale(1.3) translateY(10%);
+}
+
+.move-right:hover {
+  cursor: pointer;
+  transform: scale(1.5) translateX(12%);
+  box-shadow: 1vw 1vw 2vw rgba(0, 0, 0, 1);
+}
+
+.move-left:hover {
+  cursor: pointer;
+  transform: scale(1.5) translateX(-12%);
+  box-shadow: 1vw 1vw 2vw rgba(0, 0, 0, 1);
+}
+
+.move-right:active {
+  transform: scale(1.3) translateX(12%) translateY(10%);
+}
+
+.move-left:active {
+  transform: scale(1.2) translateX(-12%) translateY(10%);
+}
+
+.move-nowhere:hover .image-text {
+  opacity: 1;
+}
+
+.move-right:hover .image-text {
+  opacity: 1;
+}
+
+.move-left:hover .image-text {
+  opacity: 1;
+}
+
+.image-text {
+  font-family: OutfitRegular;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  opacity: 0;
+}
+
+.small {
+    font-family: OutfitRegular;
+    font-size: 48px;
+    font-size: 2vw;
+    color: white;
+    margin: 20px;
+    margin: 1vw;
+    text-decoration: none;
+    text-align: center;
+}
+
+.link {
+    font-family: OutfitRegular;
+    font-size: 48px;
+    font-size: 2vw;
+    color: white;
+    margin: 20px;
+    margin: 1vw;
+    text-decoration: none;
+    position: relative;
+    top: 0px;
+}
+
+.link:hover {
+    color: lightgreen;
+}
+
+.link:active {
+  transform: scale(0.9) translateY(10%);
+}
+
+.inline-link {
+    font-family: OutfitRegular;
+    font-size: 48px;
+    font-size: 2vw;
+    color: lightgreen;
+    text-decoration: none;
+    position: relative;
+    top: 0px;
+}
+
+.inline-link:hover {
+    color: white;
+}
+
+.inline-link:active {
+  top: 0.3vw;
+  font-size: 1.8vw;
+  opacity: 0.5;
+}
+
+.big {
+    font-family: Skyfall;
+    font-size: 96px;
+    font-size: 6vw;
+    color: white;
+    scroll-margin-top: 1lh;
+    text-align: center;
+    margin-top: 8vw;
+    margin-bottom: 4vw;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: #171826;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  z-index: 9999;
+}
+
+.gallery {
+  display: flex;
+  justify-content: space-around;
+  row-gap: 2vw;
+  align-items:center;
+  flex-wrap: wrap;
+  padding-right: 5vw;
+  padding-left: 5vw;
+}
+
+.image-card {
+  width : 100%;
+  height : 100%;
+  object-fit : cover;
+  object-position: center;
+  flex-grow: 1;
+}
+
+.centralized-column {
+  display: flex;
+  flex-direction: column;
+  position:relative;
+  text-align: center;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.centered-at-the-bottom {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image-center {
+  display: grid;
+  place-items: center;
+}
