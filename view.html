@@ -11,11 +11,11 @@
   </head>
   <body>
     <main>
-        <p class="btn" style="z-index: 9999999; width:fit-content;height:fit-content;position:fixed; top:5vh; left:5vw;" onclick="history.back()">✖</p>
+        <p class="btn" style="z-index: 9999999; width:fit-content;height:fit-content;position:fixed; top:2vh; left:5vw;" onclick="history.back()">✖</p>
         <p class="btn-right" style="z-index: 9999999; width: fit-content;height:fit-content;position:fixed; top:50%; left:0vw; padding-left: 5vw;padding-right: 5vw;" onclick="move(-1)">❮</p>
         <p class="btn-left" style="z-index: 9999999; width: fit-content;height:fit-content;position:fixed; top:50%; right:0vw; padding-left: 5vw; padding-right: 5vw;" onclick="move(1)">❯</p>
-        <div style="width:100%;height:95vh; display: flex;justify-content: center; flex-direction: column;">
-            <picture-card id="view" w="100%" class="move-view" rl="void" style="display:flex; justify-content: center;"></picture-card>
+        <div style="margin-top: 4vh; width:100%;height:95vh; display: flex;justify-content: center; flex-direction: column;">
+            <picture-card id="view" w="80vw" h="80vh" class="move-view" rl="void" style="display:flex; justify-content: center;"></picture-card>
         <div>
     </main>
     <script>
@@ -35,8 +35,24 @@
             index = Number(index) + Number(step)
             while (index < 0) index += images.length;
             index = index % images.length
-            document.getElementById('view').setAttribute('src', images[index])
+
+            const view = document.getElementById('view')
+
+            view.setAttribute('src', images[index])
+            if (step > 0) view.classList.add('jiggle-right');
+            if (step < 0) view.classList.add('jiggle-left');
+
+            view.addEventListener('animationend', () => {
+                view.classList.remove('jiggle-right');
+                view.classList.remove('jiggle-left');
+            }, { once: true });
         }
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === "ArrowRight") move(1)
+            if (event.key === "ArrowLeft") move(-1)
+            if (event.key === "Backspace" || event.key === "Delete" || event.key === "Escape") history.back()
+        });
     </script>
   </body>
 </html>

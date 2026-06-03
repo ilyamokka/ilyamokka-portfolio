@@ -51,13 +51,17 @@ img {
 }
 
 .move-view:hover {
-  transition-duration: 0s;
+  /* transition-duration: 0s; */
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.05);
   z-index: 99999;
 }
 
 .move-view:active {
+  transform: scale(1);
+}
+
+/* .move-view:active {
   transition-duration: 0s;
   transform: scale(1) translate(-50%, -50%);
   max-width: none;
@@ -69,7 +73,7 @@ img {
   height: 90vh;
   object-fit: contain;
   z-index: 99999;
-}
+} */
 
 .move-nowhere:hover {
   cursor: pointer;
@@ -350,7 +354,20 @@ h2 {
   transform: translate(-50%, -50%);
 }
 
-.image-center {
-  display: grid;
-  place-items: center;
+@keyframes jiggle-left-keyframes {
+  0% { transform: translateX(-2vw); opacity: 0.5; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes jiggle-right-keyframes {
+  0% { transform: translateX(2vw); opacity: 0.5; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+.jiggle-right {
+  animation: jiggle-right-keyframes 0.2s ease-in-out;
+}
+
+.jiggle-left {
+  animation: jiggle-left-keyframes 0.2s ease-in-out;
 }

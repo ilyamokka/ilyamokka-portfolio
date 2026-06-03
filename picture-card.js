@@ -37,17 +37,23 @@ class PictureCard extends HTMLElement {
                                         }</style>
 
                                         <a href="${href}" class="image-card move-${rl}" style="display:block;margin:auto;width: fit-content;height: fit-content;">
-                                                <video id="${filename}" loop autoplay muted playsinline><source src="${src}" type="video/mp4"/>
+                                                <video id="${filename}"  style="object-fit:contain;margin:auto;display:block;" loop autoplay muted playsinline><source src="${src}" type="video/mp4"/>
                                                         <source src="${src}" type="video/mp4">
                                                         <picture-card src="${src.split('.')[0]}.${fallback}" w="${width}" h="${height}" fs="${fontsize}" bg="${color}" cap="${caption}" rl="${rl}"></picture-card>
                                                 </video>
                                         </a>`
-                                else this.innerHTML = `<div class="image-card move-${rl}" style="display:block;margin:auto;width: fit-content;height: fit-content;"><video style="width: ${width};object-fit:cover;margin:auto;display:block;" loop autoplay muted playsinline><source src="${src}" type="video/mp4"/><picture-card src="${src.split('.')[0]}.${fallback}" w="${width}" h="${height}" fs="${fontsize}" bg="${color}" cap="${caption}" rl="${rl}"></picture-card></video></div>`
+                                else this.innerHTML = `
+                                <style>#${filename} {
+                                        width: ${width};
+                                        display:block;
+                                }</style>
+                                
+                                <div class="image-card move-${rl}" style="display:block;margin:auto;width: fit-content;height: fit-content;"><video id="${filename}" style="width: ${width};object-fit:contain;margin:auto;display:block;" loop autoplay muted playsinline><source src="${src}" type="video/mp4"/><picture-card src="${src.split('.')[0]}.${fallback}" w="${width}" h="${height}" fs="${fontsize}" bg="${color}" cap="${caption}" rl="${rl}"></picture-card></video></div>`
                         } else {
                                 if (href) this.innerHTML = `<div class="image-card move-${rl}" style="display:block;margin:auto;width: fit-content;
-                        height: fit-content;"><a href="${href}"><img src="${src}" style="width: ${width}; height: ${height};"></a><p class="image-text centered-at-the-bottom" style="font-size:${fontsize}; background-color:${color};">${caption}</p></div>`;
+                        height: fit-content;"><a href="${href}"><img src="${src}" style="width: ${width}; height: ${height};object-fit:contain;margin:auto;"></a><p class="image-text centered-at-the-bottom" style="font-size:${fontsize}; background-color:${color};">${caption}</p></div>`;
                                 else this.innerHTML = `<div class="image-card move-${rl}" style="display:block;margin:auto;width: fit-content;
-                        height: fit-content;"><img src="${src}" style="width: ${width}; height: ${height};margin:auto;display:block;"><p class="image-text centered-at-the-bottom" style="font-size:${fontsize}; background-color:${color};">${caption}</p></div>`;
+                        height: fit-content;"><img src="${src}" style="width: ${width}; height: ${height};margin:auto;display:block;object-fit:contain;"><p class="image-text centered-at-the-bottom" style="font-size:${fontsize}; background-color:${color};">${caption}</p></div>`;
                         }
                 }, 0)
                 
