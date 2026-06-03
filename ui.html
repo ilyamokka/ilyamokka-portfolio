@@ -4,23 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ilyamokka's portfolio</title>
+    <title>ilyamokka's UI</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="picture-card.js"></script>
   </head>
   <body>
     <main>
-      <div class="centralized-column">
-        <p class="small" style="margin: 2vw;">UI and branding (think of a pun later)</p>
-        <p class="small">Under construction</p>
-      </div>
       <div class="navbar" style="margin-top: 2vw; margin-bottom: 2vw;">
         <a href="index.html" class="link">Home</a>
         <a href="characters.html" class="link">Characters</a>
         <a href="environments.html" class="link">Environments</a>
         <a href="splashscreens.html" class="link">Splash screens</a>
+        <p class="navbar-current">UI</p>
         <a href="index.html#contact" class="link">Contact me</a>
       </div>
+      
+      <h1 class="big" style="margin-top: 0; margin-bottom: 1vw;">UI</h1>
+      <p class="paragraph">This very site is a good example.<br>Everything you see was coded by yours truly in pure HTML + CSS with a sprinkle of JS.<br><br>Nice little interactions, nice fonts, nice spacing.<br>Nice is how I do things.</p>
+      <div class="gallery" style="margin-bottom: 10vw;">
+        <picture-card src="images/ui/phone-mockup.gif" w="35vw" cap="Mockup" fs="1vw" rl="right" bg="#406746" style="flex-basis: 50%;" href="itself"></picture-card>
+        
+        <div class="move-left" style="display:block;margin:auto;">
+                <video style="width: 35vw;" loop autoplay muted>
+                        <source src="images/ui/more/phone-menu.mp4" type="video/mp4"/>
+                </video>
+                <p class="image-text centered-at-the-bottom" style="font-size:1vw; background-color:#406746;">Implementation</p>
+        </div>
+
+        <picture-card src="images/ui/more/graph.jpg" w="25vw" cap="Story flowchart menu" fs="1vw" rl="right" href="itself"></picture-card>
+        <picture-card src="images/ui/more/dialogue.jpg" w="25vw" cap="Dialogue system" fs="1vw" href="itself"></picture-card>
+        <picture-card src="images/ui/more/textboxes.jpg" w="25vw" cap="Floating textboxes" fs="1vw" rl="left" href="itself"></picture-card>
+      </div>
+
+      <h1 id="branding" class="big" style="margin-top: 0; margin-bottom: 1vw;">Branding</h1>
     </main>
   </body>
 </html>

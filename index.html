@@ -7,38 +7,20 @@
     <title>ilyamokka's portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-
-    <script>
-    class PictureCard extends HTMLElement {
-      connectedCallback() {
-        const src = this.getAttribute('src');
-        const width = this.getAttribute('w');
-        const height = this.getAttribute('h');
-        const caption = this.getAttribute('cap');
-        const fontsize = this.getAttribute('fs');
-        var rl = this.getAttribute('rl');
-        const href = this.getAttribute('href');
-        if (!rl) rl = "nowhere";
-        if (href) this.innerHTML = `<div class="image-card move-${rl}" style="display:block;margin:auto;width: fit-content;
-height: fit-content;"><a href="${href}"><img src="${src}" style="width: ${width}; height: ${height};"></a><p class="image-text centered-at-the-bottom" style="font-size:${fontsize};">${caption}</p></div>`;
-        else this.innerHTML = `<div class="image-card move-${rl}" style="display:block;margin:auto;width: fit-content;
-height: fit-content;"><img src="${src}" style="width: ${width}; height: ${height};"><p class="image-text centered-at-the-bottom" style="font-size:${fontsize};">${caption}</p></div>`;
-      }
-    }
-    customElements.define('picture-card', PictureCard);
-    </script>
+    <script src="picture-card.js"></script>
   </head>
   <body>
     <main>
       <div class="centralized-column">
-        <p class="small" style="margin: 2vw;">Hi! I'm ilyamokka</p>
-        <div>
-          <img src="images/meltdown-screenshake.gif" alt="Giant explosion" width="60%">
-          <p text-align="center" class="big centered">I&nbsp;MAKE&nbsp;GAMES<br>LOOK&nbsp;GOOD</p>
+        <p id="hi" class="small" style="margin: 3vh; scroll-margin-top: 2lh;">Hi! I'm ilyamokka</p>
+        <div style="margin-top: 2vw; margin-bottom:2vw;">
+          <img src="images/meltdown-screenshake.gif" width="60%">
+          <p text-align="center" class="centered" style="font-family: Skyfall; font-size: 96px; font-size: 6vw; color: white;">I&nbsp;MAKE&nbsp;GAMES<br>LOOK&nbsp;GOOD</p>
         </div>
       </div>
 
       <div class="navbar">
+        <a href="#hi" class="link">Home</a>
         <a href="#characters" class="link">Characters</a>
         <a href="#environments" class="link">Environments</a>
         <a href="#splashscreens" class="link">Splash screens</a>
@@ -46,38 +28,41 @@ height: fit-content;"><img src="${src}" style="width: ${width}; height: ${height
         <a href="#contact" class="link">Contact me</a>
       </div>
 
-      <p id="characters" text-align="left" class="big">Characters</p>
+      <h1 id="characters" class="big">Characters</h1>
       <div class="gallery">
-        <picture-card src="images/characters/alley-figure-final.gif" w="45vw" cap="See more cutscenes" fs="2vw" rl="right" href="characters.html#cutscenes"></picture-card>
-        <picture-card src="images/characters/run-cycle-solo.gif" w="35vw" cap="See more character actions" fs="2vw" rl="left" href="characters.html#actions"></picture-card>
-        <picture-card src="images/characters/giraffe-christmas.gif" w="25vw" cap="See more stickers" fs="2vw" rl="right" href="characters.html#stickers"></picture-card>
-        <picture-card src="images/characters/modular-mai.gif" w="35vw" cap="See more portraits" fs="2vw" href="characters.html#portraits"></picture-card>
-        <picture-card src="images/characters/statemachine.gif" w="25vw" cap="See more statemachines" fs="2vw" rl="left" href="characters.html#statemachines"></picture-card>
+        <picture-card src="images/characters/alley-figure-final.gif" w="40vw" cap="Click to see more cutscenes" fs="1vw" rl="right" href="characters.html#cutscenes" style="flex-basis: 50%;"></picture-card>
+        <picture-card src="images/characters/run-cycle-solo.gif" w="20vw" cap="Click to see more actions" fs="1vw" href="characters.html#actions" style="flex-basis: 50%;"></picture-card>
+        <picture-card src="images/characters/giraffe-christmas.gif" w="20vw" cap="Click to see more stickers" fs="1vw" rl="right" bg="#7c99bc" href="characters.html#stickers"></picture-card>
+        <picture-card src="images/characters/statemachine.gif" w="20vw" cap="Click to see more statemachines" fs="1vw" href="characters.html#statemachines"></picture-card>
+        <picture-card src="images/characters/modular-mai.gif" w="30vw" cap="Click to see more portraits" fs="1vw" rl="left" href="characters.html#portraits"></picture-card>
       </div>
 
-      <p id="environments" text-align="left" class="big">Environments</p>
+      <h1 id="environments" class="big">Environments</h1>
       <div class="gallery">
-        <picture-card src="images/environments/cemetery.png" w="40vw" cap="See more" fs="2vw" rl="right" href="environments.html"></picture-card>
-        <picture-card src="images/environments/construction.png" w="40vw" cap="See more" fs="2vw" rl="left" href="environments.html"></picture-card>
-        <picture-card src="images/environments/ripples.gif" w="40vw" cap="See more" fs="2vw" rl="right" href="environments.html"></picture-card>
-        <picture-card src="images/environments/monument.png" w="40vw" cap="See more" fs="2vw" rl="left" href="environments.html"></picture-card>
+        <picture-card src="images/environments/cemetery.png" w="35vw" cap="Click to see more environments" fs="1vw" rl="right" href="environments.html" style="flex-basis: 50%;"></picture-card>
+        <picture-card src="images/environments/ripples.gif" w="40vw" cap="Click to see more environments" fs="1vw" bg="#6e719f" rl="left" href="environments.html" style="flex-basis: 50%;"></picture-card>
+        <picture-card src="images/environments/props/car-spin-tutorial-export.gif" w="20vw" cap="Click to see more props" fs="1vw" rl="right" href="environments.html#props"></picture-card>
+        <picture-card src="images/environments/construction.png" w="35vw" cap="Click to see more environments" fs="1vw" href="environments.html"></picture-card>
+        <picture-card src="images/environments/props/stones.jpg" w="20vw" cap="Click to see more props" fs="1vw" rl="left" href="environments.html#props"></picture-card>
+        <!-- <picture-card src="images/environments/monument.png" w="25vw" cap="Click to see more environments" fs="1vw" rl="left" href="environments.html"></picture-card> -->
       </div>
 
-      <p id="splashscreens" text-align="left" class="big">Splash screens</p>
+      <h1 id="splashscreens" class="big">Splash screens</h1>
       <div class="gallery">
-        <picture-card src="images/splashscreens/abilities.gif" w="40vw" cap="See more" fs="2vw" rl="right" href="environments.html"></picture-card>
-        <picture-card src="images/splashscreens/yatai.png" w="40vw" cap="See more" fs="2vw" rl="left" href="splashscreens.html"></picture-card>
-        <picture-card src="images/splashscreens/sakura.png" w="40vw" cap="See more" fs="2vw" rl="right" href="splashscreens.html"></picture-card>
-        <picture-card src="images/splashscreens/copper-dragon.png" w="40vw" cap="See more" fs="2vw" rl="left" href="splashscreens.html"></picture-card>
+        <picture-card src="images/splashscreens/abilities.gif" w="30vw" cap="Click to see more splashscreens" fs="1vw" rl="right" href="environments.html"></picture-card>
+        <picture-card src="images/splashscreens/yatai.png" w="30vw" cap="Click to see more splashscreens" fs="1vw" rl="left" href="splashscreens.html"></picture-card>
+        <picture-card src="images/splashscreens/sakura.png" w="30vw" cap="Click to see more splashscreens" fs="1vw" rl="right" href="splashscreens.html"></picture-card>
+        <picture-card src="images/splashscreens/copper-dragon.png" w="30vw" cap="Click to see more splashscreens" fs="1vw" bg="#306e51" rl="left" href="splashscreens.html"></picture-card>
       </div>
 
-      <p id="ui" text-align="left" class="big">UI</p>
+      <h1 id="ui" class="big">UI and branding</h1>
       <div class="gallery">
-        <picture-card src="images/ui/phone-mockup.gif" w="50vw" cap="See more" fs="2vw" href="environments.html"></picture-card>
+        <picture-card src="images/ui/phone-mockup.gif" w="35vw" cap="Click to see more UI" fs="1vw" bg="#406746" href="ui.html"></picture-card>
+        <picture-card src="images/ui/animated-logo.gif" w="35vw" cap="Click to see more branding" fs="1vw" href="ui.html#branding"></picture-card>
       </div>
 
       
-      <p id="contact" class="big">Contact me</p>
+      <h1 id="contact" class="big">Contact me</h1>
 
       <div class="centralized-column">
         <p class="small" style="margin-top: 4vw; margin-bottom: 4vw;"><a href="mailto:commission@ilyamokka.com" class="inline-link">commission@ilyamokka.com</a><br>or<br>@ilyamokka on Discord, <a href="https://www.artstation.com/ilyamokka" class="inline-link">ArtStation</a>, <a href="https://www.reddit.com/user/ilyamokka/submitted/" class="inline-link">Reddit</a>, <a href="https://x.com/ilyamokka" class="inline-link">X</a>, and <a href="https://bsky.app/profile/ilyamokka.bsky.social" class="inline-link">Bluesky</a></p>
@@ -85,6 +70,5 @@ height: fit-content;"><img src="${src}" style="width: ${width}; height: ${height
         <p class="small">2026 © All rights reserved</p>
       </div>
     </main>
-    <script src="index.js"></script>
   </body>
 </html>

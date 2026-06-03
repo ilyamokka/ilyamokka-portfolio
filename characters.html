@@ -4,32 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ilyamokka's portfolio</title>
+    <title>ilyamokka's characters</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="picture-card.js"></script>
   </head>
   <body>
     <main>
-      <p class="small" style="margin: 2vw;">This is where my characters live</p>
-        <p class="small">Under construction</p>
-      <!-- <p class="small">Characters are where animation gets personal.<br>This is the work I care most about: building performances from the ground up, finding the weight, timing, and personality that make a character feel alive.<br>Every piece here started with a rig and a blank timeline, and ended with something that moves like it has a story to tell.</p> -->
-
       <div class="navbar" style="margin-top: 2vw; margin-bottom: 2vw;">
         <a href="index.html" class="link">Home</a>
+        <p class="navbar-current">Characters</p>
         <a href="environments.html" class="link">Environments</a>
         <a href="splashscreens.html" class="link">Splash screens</a>
         <a href="ui.html" class="link">UI</a>
         <a href="index.html#contact" class="link">Contact me</a>
       </div>
 
-      <p id="cutscenes" class="big" style="margin-top:100px; margin-bottom:0px;">Complex cutscenes</p>
+      <h1 id="cutscenes" class="big" style="margin-top:0; margin-bottom:1vw;">Epic cutscenes</h1>
+      <p class="paragraph">Making your characters interact with their environment is a good way to<br>get better player immersion and add visual interest to the action.<br><br>Sounds good, but how do you actually go about doing this? That's the neat part, I do it for you.</p>
+      <div class="gallery">
+        <picture-card src="images/characters/cutscenes/smoke-bomb.gif" w="30vw" rl="right" cap="Yoink" fs="1vw" href="itself"></picture-card>
+        <picture-card src="images/characters/cutscenes/gunplay.gif" w="30vw" rl="left" cap="Yeet" fs="1vw" href="itself"></picture-card>
+        <picture-card src="images/characters/cutscenes/ice-attack-devlog-2.gif" w="30vw" rl="right" cap="Poke" fs="1vw" bg="#3c4b44" href="itself"></picture-card>
+        <picture-card src="images/characters/cutscenes/firefight.gif" w="30vw" rl="left" cap="Bang" fs="1vw" href="itself"></picture-card>
+      </div>
 
-      <p id="stickers" class="big" style="margin-top:100px; margin-bottom:0px;">Stickers</p>
+      <h1 id="statemachines" class="big" style="margin-top:5vw; margin-bottom:0px;">Complex state machines</h1>
+      <p class="paragraph">State machines are a well-known development concept which I take to the extreme.<br>Animating every single state transition pays off in fluid, lifelike characters.<br>Sometimes a state can have several entry and exit frames.<br><br>It might seem like this will only work for NPCs, but these characters are surprisingly responsive if you do the statemachine right.</p>
+      <div class="gallery" style="padding-left: 15vw; padding-right: 15vw;">
+        <picture-card src="images/characters/statemachines/kawahara-demo.gif" w="25vw" style="flex-basis: 45%;" href="itself"></picture-card>
+        <picture-card src="images/characters/statemachines/ridiculuos.gif" w="25vw" style="flex-basis: 45%;" href="itself"></picture-card>
+        <picture-card src="images/characters/statemachines/statemachine.gif" w="15vw" href="itself"></picture-card>
+        <picture-card src="images/characters/statemachines/pigeon-statemachine.gif" cap="Palette swap example" fs="1vw" bg="#508bd2" w="15vw" href="itself"></picture-card>
+      </div>
 
-      <p id="statemachines" class="big" style="margin-top:100px; margin-bottom:0px;">State machines</p>
+      <h1 id="actions" class="big" style="margin-top:5vw; margin-bottom:0px;">Expressive actions</h1>
+      <p class="paragraph">Do you want 'em fast 'n loose or slow or steady?<br>Doesn't matter. I do 'em all.</p>
+      <div class="gallery">
+        <picture-card src="images/characters/actions/modular-mai-run-beanie.gif" rl="right" w="18vw" style="flex-basis: 20%;" href="itself"></picture-card>
+        <picture-card src="images/characters/actions/dump.gif" w="18vw" style="flex-basis: 20%;" href="itself"></picture-card>
+        <picture-card src="images/characters/run-cycle-solo.gif" w="18vw" style="flex-basis: 20%;" href="itself"></picture-card>
+        <picture-card src="images/characters/actions/walk.gif" rl="left" w="18vw" style="flex-basis: 20%;" href="itself"></picture-card>
+        <picture-card src="images/characters/actions/boom.gif" w="20vw" rl="right" href="itself"></picture-card>
+        <picture-card src="images/characters/actions/suzu-spin.gif" w="20vw" href="itself"></picture-card>
+        <picture-card src="images/characters/actions/fold.gif" w="20vw" rl="left" href="itself"></picture-card>
+      </div>
 
-      <p id="actions" class="big" style="margin-top:100px; margin-bottom:0px;">Character actions</p>
+      <h1 id="portraits" class="big" style="margin-top:5vw; margin-bottom:0px;">Modular portraits</h1>
+      <p class="paragraph">Different parts of the face are set on different layers and animated independently.<br><br>A big benefit of this approach is that features from different expressions can be combined:<br>neutral mouth + angry eyes = suspicious expression.</p>
+      <div class="gallery">
+        <picture-card src="images/characters/portraits/modular-mai.gif" w="30vw" href="itself"></picture-card>
+        <picture-card src="images/characters/portraits/modular-shiro.gif" w="30vw" href="itself"></picture-card>
+      </div>
 
+      <h1 id="stickers" class="big" style="margin-top:5vw; margin-bottom:0px;">Charming stickers</h1>
+      <p class="paragraph">These assets are not directly related to gamedev, but they are quite popular with my clients.</p>
+      <!-- <h2>Zoo pack</h2> -->
+      <div class="gallery" style="margin-bottom: 5vw;">
+        <picture-card src="images/characters/stickers/polar-bear-idle.gif" rl="right" w="22vw" cap="Zoo pack: Polar Bear" fs="1vw" bg="#7c99bc" href="itself"></picture-card>
+        <picture-card src="images/characters/stickers/giraffe-idle.gif" w="20vw" cap="Zoo pack: Giraffe" fs="1vw" bg="#7c99bc" href="itself"></picture-card>
+        <picture-card src="images/characters/stickers/lion-idle.gif" rl="left" w="25vw" cap="Zoo pack: Lion" fs="1vw" href="itself"></picture-card>
+        <picture-card src="images/characters/stickers/tiger-idle.gif" w="18vw" rl="right" cap="Zoo pack: Tiger" fs="1vw"  bg="#cc6c37" style="flex-basis: 35%;" href="itself"></picture-card>
+        <picture-card src="images/characters/stickers/gorilla-idle.gif" w="18vw" cap="Zoo pack: Gorilla" fs="1vw" href="itself"></picture-card>
+        <picture-card src="images/characters/stickers/bear-idle.gif" w="18vw" cap="Zoo pack: Bear" fs="1vw" style="flex-basis: 35%;" href="itself"></picture-card>
+      </div>
+
+      <!-- <h2>Kaomoji pack</h2> -->
+      <div class="gallery" style="margin-bottom: 10vw;">
+        <picture-card src="images/characters/stickers/happy.gif" w="18vw" cap="Kaomoji pack:<br>Happy" fs="1vw" bg="#e5ddd1" href="itself"></picture-card>
+        <picture-card src="images/characters/stickers/angry.gif" w="18vw" cap="Kaomoji pack:<br>Angry" fs="1vw" bg="#e5ddd1" href="itself"></picture-card>
+        <picture-card src="images/characters/stickers/sad.gif" w="18vw" cap="Kaomoji pack:<br>Sad" fs="1vw" bg="#e5ddd1" href="itself"></picture-card>
+      </div>
     </main>
   </body>
 </html>
