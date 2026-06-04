@@ -21,12 +21,18 @@
 :root {
   --small-text-size: 2vw;
   --big-text-size: 6vw;
+  --navbar-padding-top: 1vw;
+  --navbar-padding-bottom: 0vw;
+  --navbar-row-gap: 1vw;
 }
 
 @media screen and (min-width: 800px) and (max-width: 1200px) {
     :root {
       --small-text-size: 3vw;
       --big-text-size: 7vw;
+      --navbar-padding-top: 3vw;
+      --navbar-padding-bottom: 2vw;
+      --navbar-row-gap: 2vw;
     }
 }
 
@@ -34,6 +40,9 @@
     :root {
       --small-text-size: 4vw;
       --big-text-size: 8vw;
+      --navbar-padding-top: 5vw;
+      --navbar-padding-bottom: 4vw;
+      --navbar-row-gap: 3vw;
     }
 }
 
@@ -41,7 +50,25 @@
     :root {
       --small-text-size: 5vw;
       --big-text-size: 9vw;
+      --navbar-padding-top: 7vw;
+      --navbar-padding-bottom: 6vw;
+      --navbar-row-gap: 4vw;
     }
+    
+}
+
+.navbar {
+  position: sticky;
+  padding-top: var(--navbar-padding-top);
+  top: -1vw;
+  padding-bottom: var(--navbar-padding-bottom);
+  background-color: #171826;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  row-gap: var(--navbar-row-gap);
+  z-index: 9999;
 }
 
 * {
@@ -327,18 +354,6 @@ h2 {
   scroll-margin-top: 0.6lh;
   text-align: left;
   padding-left: 5vw;
-}
-
-.navbar {
-  position: sticky;
-  padding-top: 1vw;
-  top: -1vw;
-  background-color: #171826;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  z-index: 9999;
 }
 
 .gallery {
