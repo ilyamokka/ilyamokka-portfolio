@@ -92,7 +92,7 @@ window.addEventListener('load', () => {
         const urlParams = new URLSearchParams(queryString);
         var section = urlParams.get('section');
 
-        if (section) document.getElementById(section).scrollIntoView()
+        if (section) setTimeout(document.getElementById(section).scrollIntoView(), 100) 
 });
 
 window.addEventListener('beforeunload', () => {
