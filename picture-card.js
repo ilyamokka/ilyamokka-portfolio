@@ -31,7 +31,7 @@ class PictureCard extends HTMLElement {
                                 const filename = path[path.length - 1].split('.')[0]
 
                                 if (href) this.innerHTML = `
-                                        <style>#${filename} {
+                                        <style>?section=${filename} {
                                                 width: ${width};
                                                 display:block;
                                         }</style>
@@ -43,7 +43,7 @@ class PictureCard extends HTMLElement {
                                                 </video>
                                         </a>`
                                 else this.innerHTML = `
-                                <style>#${filename} {
+                                <style>?section=${filename} {
                                         width: ${width};
                                         display:block;
                                 }</style>
@@ -66,14 +66,35 @@ class PictureCard extends HTMLElement {
 }
 customElements.define('picture-card', PictureCard);
 
-window.addEventListener('load', () => {
-  if (window.location.hash) {
-    // Small timeout ensures the browser has rendered layout adjustments
-    setTimeout(() => {
-      const target = document.querySelector(window.location.hash);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 10); 
+window.addEventListener('pageshow', (event) => {
+  const previousPage = sessionStorage.getItem('previous_local_page');
+  const targetPage = '/specific-page-path'; // Replace with your target path
+
+  if (previousPage === targetPage) {
+    // 1. Put your custom JavaScript behavior here
+    console.log('User returned from the specific page!');
+    
+    // 2. Optional: Clear the value so it does not trigger on a normal refresh
+    sessionStorage.removeItem('previous_local_page');
   }
+});
+
+window.addEventListener('load', () => {
+        const previousPage = sessionStorage.getItem('previous_local_page');
+        const split = previousPage.split('/')
+
+        if (split[split.length - 1] == "view.html") {
+                sessionStorage.removeItem('previous_local_page');
+                return
+        }
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        var section = urlParams.get('section');
+
+        if (section) document.getElementById(section).scrollIntoView()
+});
+
+window.addEventListener('beforeunload', () => {
+  sessionStorage.setItem('previous_local_page', window.location.pathname);
 });
