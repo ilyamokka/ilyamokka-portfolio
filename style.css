@@ -19,6 +19,8 @@
 }
 
 :root {
+  --tiny-text-size: 0.5vw;
+  --smaller-text-size: 1vw;
   --small-text-size: 2vw;
   --big-text-size: 6vw;
   --navbar-padding-top: 1vw;
@@ -31,6 +33,8 @@
 
 @media screen and (min-width: 800px) and (max-width: 1200px) {
     :root {
+      --tiny-text-size: 0.75vw;
+      --smaller-text-size: 1.5vw;
       --small-text-size: 3vw;
       --big-text-size: 7vw;
       --navbar-padding-top: 3vw;
@@ -41,6 +45,8 @@
 
 @media screen and (min-width: 400px) and (max-width: 800px) {
     :root {
+      --tiny-text-size: 1vw;
+      --smaller-text-size: 2vw;
       --small-text-size: 4vw;
       --big-text-size: 8vw;
       --navbar-padding-top: 5vw;
@@ -51,6 +57,8 @@
 
 @media screen and (max-width: 400px) {
     :root {
+      --tiny-text-size: 1.25vw;
+      --smaller-text-size: 2.5vw;
       --small-text-size: 5vw;
       --big-text-size: 9vw;
       --navbar-padding-top: 7vw;
@@ -182,10 +190,12 @@ img {
 
 .image-text {
   font-family: OutfitRegular;
+  font-size: var(--smaller-text-size);
   color: white;
   text-decoration: none;
   text-align: center;
   opacity: 0;
+  text-shadow: 0 0 5px black;
 }
 
 .small {
@@ -197,6 +207,10 @@ img {
     margin: 1vw;
     text-decoration: none;
     text-align: center;
+}
+
+.tiny {
+  font-size: var(--tiny-text-size);
 }
 
 .paragraph {

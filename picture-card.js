@@ -3,20 +3,25 @@ class PictureCard extends HTMLElement {
                 const src = this.getAttribute('src');
                 const width = this.getAttribute('w');
                 const height = this.getAttribute('h');
-                var caption = this.getAttribute('cap');
+                let caption = this.getAttribute('cap');
                 const fontsize = this.getAttribute('fs');
-                const color = this.getAttribute('bg');
-                var rl = this.getAttribute('rl');
-                var href = this.getAttribute('href');
+                let color = this.getAttribute('bg');
+                let rl = this.getAttribute('rl');
+                let href = this.getAttribute('href');
                 const fallback = this.getAttribute('fallback');
+                let enlarge = ""
+
+                color = null
 
                 if (!caption) caption = "";
                 if (!rl) rl = "nowhere";
                 setTimeout(() => {
                         if (href === "itself") {
-                                var images = "?"
-                                var index = 0
-                                var currentIndex = 0;
+                                enlarge = "<br><i class='tiny'>Click for fullscreen</i>"
+
+                                let images = "?"
+                                let index = 0
+                                let currentIndex = 0;
                                 
                                 Array.from(this.parentElement.childNodes).filter(child => child.nodeName === "PICTURE-CARD").forEach(element => {
                                         if (element.getAttribute("src") === this.getAttribute("src")) currentIndex = index;
@@ -39,7 +44,7 @@ class PictureCard extends HTMLElement {
                                         <a href="${href}" class="image-card move-${rl}" style="display:block;margin:auto;width: fit-content;height: fit-content;">
                                                 <video id="${filename}"  style="object-fit:contain;margin:auto;display:block;" loop autoplay muted playsinline><source src="${src}" type="video/mp4"/>
                                                         <source src="${src}" type="video/mp4">
-                                                        <picture-card src="${src.split('.')[0]}.${fallback}" w="${width}" h="${height}" fs="${fontsize}" bg="${color}" cap="${caption}" rl="${rl}"></picture-card>
+                                                        <picture-card src="${src.split('.')[0]}.${fallback}" w="${width}" h="${height}" bg="${color}" cap="${caption}${enlarge}" rl="${rl}"></picture-card>
                                                 </video>
                                         </a>`
                                 else this.innerHTML = `
@@ -48,12 +53,12 @@ class PictureCard extends HTMLElement {
                                         display:block;
                                 }</style>
                                 
-                                <div class="image-card move-${rl}" style="display:block;margin:auto;width: fit-content;height: fit-content;"><video id="${filename}" style="width: ${width};object-fit:contain;margin:auto;display:block;" loop autoplay muted playsinline><source src="${src}" type="video/mp4"/><picture-card src="${src.split('.')[0]}.${fallback}" w="${width}" h="${height}" fs="${fontsize}" bg="${color}" cap="${caption}" rl="${rl}"></picture-card></video></div>`
+                                <div class="image-card move-${rl}" style="display:block;margin:auto;width: fit-content;height: fit-content;"><video id="${filename}" style="width: ${width};object-fit:contain;margin:auto;display:block;" loop autoplay muted playsinline><source src="${src}" type="video/mp4"/><picture-card src="${src.split('.')[0]}.${fallback}" w="${width}" h="${height}" bg="${color}" cap="${caption}${enlarge}" rl="${rl}"></picture-card></video></div>`
                         } else {
                                 if (href) this.innerHTML = `<div class="image-card move-${rl}" style="display:block;margin:auto;width: fit-content;
-                        height: fit-content;"><a href="${href}"><img src="${src}" style="width: ${width}; height: ${height};object-fit:contain;margin:auto;"></a><p class="image-text centered-at-the-bottom" style="font-size:${fontsize}; background-color:${color};">${caption}</p></div>`;
+                        height: fit-content;"><a href="${href}"><img src="${src}" style="width: ${width}; height: ${height};object-fit:contain;margin:auto;"></a><p class="image-text centered-at-the-bottom" background-color:${color};">${caption}${enlarge}</p></div>`;
                                 else this.innerHTML = `<div class="image-card move-${rl}" style="display:block;margin:auto;width: fit-content;
-                        height: fit-content;"><img src="${src}" style="width: ${width}; height: ${height};margin:auto;display:block;object-fit:contain;"><p class="image-text centered-at-the-bottom" style="font-size:${fontsize}; background-color:${color};">${caption}</p></div>`;
+                        height: fit-content;"><img src="${src}" style="width: ${width}; height: ${height};margin:auto;display:block;object-fit:contain;"><p class="image-text centered-at-the-bottom" background-color:${color};">${caption}${enlarge}</p></div>`;
                         }
                 }, 0)
                 
@@ -90,7 +95,7 @@ window.addEventListener('load', () => {
 
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
-        var section = urlParams.get('section');
+        let section = urlParams.get('section');
 
         if (section) setTimeout(document.getElementById(section).scrollIntoView(), 100) 
 });

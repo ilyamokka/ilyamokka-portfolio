@@ -45,8 +45,8 @@
     <script>
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
-        var index = urlParams.get('currentIndex');
-        var images = [];
+        let index = urlParams.get('currentIndex');
+        let images = [];
         for (let i = 0; ; i++) {
             const src = urlParams.get('src' + i);
             if (src) images.push(src)
