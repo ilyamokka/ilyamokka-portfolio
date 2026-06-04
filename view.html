@@ -12,8 +12,32 @@
   <body>
     <main>
         <p class="btn" style="z-index: 9999999; width:fit-content;height:fit-content;position:fixed; top:2vh; left:5vw;" onclick="history.back()">✖</p>
-        <p class="btn-right" style="z-index: 9999999; width: fit-content;height:fit-content;position:fixed; top:50%; left:0vw; padding-left: 5vw;padding-right: 5vw;" onclick="move(-1)">❮</p>
-        <p class="btn-left" style="z-index: 9999999; width: fit-content;height:fit-content;position:fixed; top:50%; right:0vw; padding-left: 5vw; padding-right: 5vw;" onclick="move(1)">❯</p>
+        <p class="btn-right" style="margin: 0; z-index: 9999999; width: fit-content;height:fit-content;position:fixed; top:48vh; left:0vw; padding-left: 5vw;padding-right: 5vw;" onclick="move(-1)">❮</p>
+        <p class="btn-left" style="margin: 0; z-index: 9999999; width: fit-content;height:fit-content;position:fixed; top:48vh; right:0vw; padding-left: 5vw; padding-right: 5vw;" onclick="move(1)">❯</p>
+
+        <div id="dots" style="margin: 0; z-index: 9999999; width: fit-content;height:5vw;position:fixed; bottom:0vh; right:50vw; padding-bottom: 0vw; transform: translateX(50%); display: flex; justify-content: center; align-items: center;">
+            <p id="0" class="dot" onclick="moveTo(0)">⦿</p>
+            <p id="1" class="dot" onclick="moveTo(1)">⦿</p>
+            <p id="2" class="dot" onclick="moveTo(2)">⦿</p>
+            <p id="3" class="dot" onclick="moveTo(3)">⦿</p>
+            <p id="4" class="dot" onclick="moveTo(4)">⦿</p>
+            <p id="5" class="dot" onclick="moveTo(5)">⦿</p>
+            <p id="6" class="dot" onclick="moveTo(6)">⦿</p>
+            <p id="7" class="dot" onclick="moveTo(7)">⦿</p>
+            <p id="8" class="dot" onclick="moveTo(8)">⦿</p>
+            <p id="9" class="dot" onclick="moveTo(9)">⦿</p>
+            <p id="10" class="dot" onclick="moveTo(10)">⦿</p>
+            <p id="11" class="dot" onclick="moveTo(11)">⦿</p>
+            <p id="12" class="dot" onclick="moveTo(12)">⦿</p>
+            <p id="13" class="dot" onclick="moveTo(13)">⦿</p>
+            <p id="14" class="dot" onclick="moveTo(14)">⦿</p>
+            <p id="15" class="dot" onclick="moveTo(15)">⦿</p>
+            <p id="16" class="dot" onclick="moveTo(16)">⦿</p>
+            <p id="17" class="dot" onclick="moveTo(17)">⦿</p>
+            <p id="18" class="dot" onclick="moveTo(18)">⦿</p>
+            <p id="19" class="dot" onclick="moveTo(19)">⦿</p>
+        </div>
+
         <div style="margin-top: 4vh; width:100%;height:95vh; display: flex;justify-content: center; flex-direction: column;">
             <picture-card id="view" w="80vw" h="80vh" class="move-view" rl="void" style="display:flex; justify-content: center;"></picture-card>
         <div>
@@ -22,7 +46,6 @@
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         var index = urlParams.get('currentIndex');
-        console.log(index)
         var images = [];
         for (let i = 0; ; i++) {
             const src = urlParams.get('src' + i);
@@ -30,6 +53,7 @@
             else break
         }
         document.getElementById('view').setAttribute('src',images[index])
+        upddateDots()
 
         function move(step) {
             index = Number(index) + Number(step)
@@ -46,6 +70,26 @@
                 view.classList.remove('jiggle-right');
                 view.classList.remove('jiggle-left');
             }, { once: true });
+            upddateDots()
+        }
+
+        function moveTo(target) {
+            move(target - index)
+        }
+
+        function upddateDots() {
+            const dots = Array.from(document.getElementById('dots').childNodes).filter(element => element.nodeName === "P");
+            for (let i = 0; i < dots.length; i++) {
+                if (i === Number(index)) {
+                    dots[i].classList.remove('dot')
+                    dots[i].classList.add('dot-current')
+                } else {
+                    dots[i].classList.add('dot')
+                    dots[i].classList.remove('dot-current')
+                }
+                if (i >= images.length) dots[i].classList.add('hidden')
+                else dots[i].classList.remove('hidden')
+            }
         }
 
         window.addEventListener('keydown', function(event) {

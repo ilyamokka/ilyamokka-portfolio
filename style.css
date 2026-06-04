@@ -24,6 +24,9 @@
   --navbar-padding-top: 1vw;
   --navbar-padding-bottom: 0vw;
   --navbar-row-gap: 1vw;
+
+  /* --theme-color: #b5ad08; */
+  --theme-color: lightgreen;
 }
 
 @media screen and (min-width: 800px) and (max-width: 1200px) {
@@ -75,7 +78,7 @@
   scroll-behavior: smooth;
   scrollbar-color: white #171826;
   scrollbar-width: thin;
-  scrollbar-width: none;
+  /* scrollbar-width: none; */
   transition: all 0.1s ease-out;
 }
 
@@ -223,7 +226,7 @@ img {
 }
 
 .link:hover {
-    color: lightgreen;
+    color: var(--theme-color);
 }
 
 .link:active {
@@ -235,7 +238,7 @@ img {
     font-family: OutfitRegular;
     font-size: 48px;
     font-size: var(--small-text-size);
-    color: lightgreen;
+    color: var(--theme-color);
     margin: 20px;
     margin: 1vw;
     text-decoration: none;
@@ -256,7 +259,7 @@ img {
 }
 
 .inline-link {
-    color: lightgreen;
+    color: var(--theme-color);
     text-decoration: none;
     position: relative;
     top: 0px;
@@ -306,7 +309,7 @@ img {
 }
 
 .btn:hover {
-  color: lightgreen;
+  color: var(--theme-color);
   transform: scale(1.2);
 }
 
@@ -316,7 +319,7 @@ img {
 }
 
 .btn-right:hover {
-  color: lightgreen;
+  color: var(--theme-color);
   transform: scale(1.2);
 }
 
@@ -326,7 +329,7 @@ img {
 }
 
 .btn-left:hover {
-  color: lightgreen;
+  color: var(--theme-color);
   transform: scale(1.2);
 }
 
@@ -411,4 +414,52 @@ h2 {
 
 .jiggle-left {
   animation: jiggle-left-keyframes 0.2s ease-in-out;
+}
+
+.dot {
+    height: fit-content;
+    font-family: OutfitRegular;
+    font-size: 2vw;
+    color: white;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.dot:hover {
+    transform: scale(1.1);
+    color: var(--theme-color);
+}
+
+.dot:active {
+  transform: scale(0.9);
+  opacity: 0.5;
+}
+
+.dot-current {
+    font-family: OutfitRegular;
+    font-size: 3vw;
+    color: var(--theme-color);
+    margin-right: 1vw;
+    margin-left: 1vw;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    vertical-align:middle;
+}
+
+.dot-current:hover {
+    transform: scale(1.1);
+    color: white;
+}
+
+.dot-current:active {
+  transform: scale(0.9);
+  opacity: 0.5;
+}
+
+.hidden {
+  display: none;
 }
