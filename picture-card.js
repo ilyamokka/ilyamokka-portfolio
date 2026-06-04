@@ -65,3 +65,15 @@ class PictureCard extends HTMLElement {
         }
 }
 customElements.define('picture-card', PictureCard);
+
+window.addEventListener('load', () => {
+  if (window.location.hash) {
+    // Small timeout ensures the browser has rendered layout adjustments
+    setTimeout(() => {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 10); 
+  }
+});
