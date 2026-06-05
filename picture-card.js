@@ -98,6 +98,8 @@ window.addEventListener('load', async () => {
         const urlParams = new URLSearchParams(queryString);
         let section = urlParams.get('section');
 
+        console.log(section)
+
         if (section) {
                 await waitForAllVideos()
                 document.getElementById(section).scrollIntoView()
@@ -112,6 +114,8 @@ function waitForAllVideos() {
   // 1. Gather all video elements currently in the DOM
   const videos = Array.from(document.querySelectorAll('video'));
   
+  console.log(videos)
+
   if (videos.length === 0) {
     return Promise.resolve(); // No videos found, resolve immediately
   }
@@ -120,16 +124,19 @@ function waitForAllVideos() {
   const videoPromises = videos.map((video) => {
     return new Promise((resolve) => {
       // If the video has already loaded past the first frame, resolve instantly
-      if (video.readyState >= 2) { 
+      if (video.readyState >= 4) { 
+        console.log("resolved")
         resolve();
       } else {
         // Otherwise, wait for the 'loadeddata' event to fire
         video.addEventListener('loadeddata', () => {
+          console.log("loaded")
           resolve();
         }, { once: true }); // Automatically removes event listener after execution
 
         // Optional: Error handling if the video fails to load
         video.addEventListener('error', () => {
+        console.log("error")
           resolve(); // Resolve anyway to avoid breaking Promise.all block
         }, { once: true });
       }
