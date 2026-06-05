@@ -35,6 +35,8 @@ class PictureCard extends HTMLElement {
                                 const path = src.split('/')
                                 const filename = path[path.length - 1].split('.')[0]
 
+                                console.log(filename)
+
                                 if (href) this.innerHTML = `
                                         <style>#${filename} {
                                                 width: ${width};
