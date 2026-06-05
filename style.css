@@ -433,7 +433,7 @@ h2 {
 .dot {
     height: fit-content;
     font-family: OutfitRegular;
-    font-size: 1vw;
+    font-size: var(--smaller-text-size);
     color: white;
     margin-right: 1vw;
     margin-left: 1vw;
@@ -454,7 +454,7 @@ h2 {
 
 .dot-current {
     font-family: OutfitRegular;
-    font-size: 2vw;
+    font-size: var(--small-text-size);
     color: var(--theme-color);
     margin-right: 1vw;
     margin-left: 1vw;
