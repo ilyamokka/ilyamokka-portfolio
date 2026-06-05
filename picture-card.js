@@ -100,7 +100,7 @@ window.addEventListener('load', () => {
         const urlParams = new URLSearchParams(queryString);
         let section = urlParams.get('section');
 
-        if (section) setTimeout(document.getElementById(section).scrollIntoView(), 100) 
+        if (section) setTimeout(document.getElementById(section).scrollIntoView(), 200) 
 });
 
 window.addEventListener('beforeunload', () => {
