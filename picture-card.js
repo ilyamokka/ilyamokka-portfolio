@@ -86,6 +86,8 @@ window.addEventListener('pageshow', (event) => {
 });
 
 window.addEventListener('load', async () => {
+        console.log('Page loaded')
+
         const previousPage = sessionStorage.getItem('previous_local_page');
         const split = previousPage.split('/')
 
