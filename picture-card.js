@@ -148,3 +148,25 @@ function waitForAllVideos() {
   // 3. Return a combined Promise that resolves when all conditions are met
   return Promise.all(videoPromises);
 }
+
+(function removeAddressBar(){
+        const isMobile = window.matchMedia("(pointer: coarse)").matches;
+        const isLandscape = window.matchMedia("(orientation: landscape)").matches;
+
+        if (!isMobile || !isLandscape) return;
+
+        console.log("Mobile+landscape detected. Removing address bar.")
+
+        // Make sure it really scrolls down.
+        window.scrollTo(0, 10);
+
+        // Set a timeout to check that it has scrolled down.
+        setTimeout(function() { 
+        if(window.scrollY == 0) { 
+                removeAddressBar();
+        }else{
+                window.scrollTo(0, 1);
+                //launch();
+        }
+        }, 500);
+})(this)
