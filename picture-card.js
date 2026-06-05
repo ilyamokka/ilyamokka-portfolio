@@ -35,8 +35,6 @@ class PictureCard extends HTMLElement {
                                 const path = src.split('/')
                                 const filename = path[path.length - 1].split('.')[0]
 
-                                console.log(filename)
-
                                 if (href) this.innerHTML = `
                                         <style>#${filename} {
                                                 width: ${width};
@@ -87,7 +85,7 @@ window.addEventListener('pageshow', (event) => {
   }
 });
 
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
         const previousPage = sessionStorage.getItem('previous_local_page');
         const split = previousPage.split('/')
 
@@ -100,9 +98,44 @@ window.addEventListener('load', () => {
         const urlParams = new URLSearchParams(queryString);
         let section = urlParams.get('section');
 
-        if (section) setTimeout(document.getElementById(section).scrollIntoView(), 200) 
+        if (section) {
+                await waitForAllVideos()
+                document.getElementById(section).scrollIntoView()
+        }
 });
 
 window.addEventListener('beforeunload', () => {
   sessionStorage.setItem('previous_local_page', window.location.pathname);
 });
+
+function waitForAllVideos() {
+  // 1. Gather all video elements currently in the DOM
+  const videos = Array.from(document.querySelectorAll('video'));
+  
+  if (videos.length === 0) {
+    return Promise.resolve(); // No videos found, resolve immediately
+  }
+
+  // 2. Map each video element to a Promise
+  const videoPromises = videos.map((video) => {
+    return new Promise((resolve) => {
+      // If the video has already loaded past the first frame, resolve instantly
+      if (video.readyState >= 2) { 
+        resolve();
+      } else {
+        // Otherwise, wait for the 'loadeddata' event to fire
+        video.addEventListener('loadeddata', () => {
+          resolve();
+        }, { once: true }); // Automatically removes event listener after execution
+
+        // Optional: Error handling if the video fails to load
+        video.addEventListener('error', () => {
+          resolve(); // Resolve anyway to avoid breaking Promise.all block
+        }, { once: true });
+      }
+    });
+  });
+
+  // 3. Return a combined Promise that resolves when all conditions are met
+  return Promise.all(videoPromises);
+}
