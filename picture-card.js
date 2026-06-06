@@ -74,11 +74,14 @@ customElements.define('picture-card', PictureCard);
 
 window.addEventListener('load', async () => {
         const previousPage = sessionStorage.getItem('previous_local_page');
-        const split = previousPage.split('/')
 
-        if (split[split.length - 1] == "view.html") {
-                sessionStorage.removeItem('previous_local_page');
-                return
+        if (previousPage) {
+                const split = previousPage.split('/')
+
+                if (split[split.length - 1] == "view.html") {
+                        sessionStorage.removeItem('previous_local_page');
+                        return
+                }
         }
 
         const queryString = window.location.search;
