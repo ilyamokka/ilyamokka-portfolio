@@ -133,8 +133,8 @@ function waitForAllVideos() {
       if (image.complete) {
         resolve();
       } else {
-        img.addEventListener('load', resolve(), { once: true });
-        img.addEventListener('error', resolve(), { once: true });
+        image.addEventListener('load', resolve(), { once: true });
+        image.addEventListener('error', resolve(), { once: true });
       }
     });
   });
