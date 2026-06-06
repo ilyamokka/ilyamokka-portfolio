@@ -231,6 +231,7 @@ img {
     font-size: 48px;
     font-size: var(--small-text-size);
     color: white;
+    fill: white;
     margin: 20px;
     margin: 1vw;
     text-decoration: none;
@@ -242,6 +243,7 @@ img {
 
 .link:hover {
     color: var(--theme-color);
+    fill: var(--theme-color)
 }
 
 .link:active {
@@ -254,6 +256,7 @@ img {
     font-size: 48px;
     font-size: var(--small-text-size);
     color: var(--theme-color);
+    fill: var(--theme-color);
     margin: 20px;
     margin: 1vw;
     text-decoration: none;
@@ -266,6 +269,7 @@ img {
 
 .navbar-current:hover {
     color: white;
+    fill: white;
 }
 
 .navbar-current:active {

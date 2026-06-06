@@ -87,7 +87,7 @@
                     dots[i].classList.add('dot')
                     dots[i].classList.remove('dot-current')
                 }
-                if (i >= images.length) dots[i].classList.add('hidden')
+                if (i >= images.length || images.length < 2) dots[i].classList.add('hidden')
                 else dots[i].classList.remove('hidden')
             }
         }

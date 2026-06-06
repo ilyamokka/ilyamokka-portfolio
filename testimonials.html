@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ilyamokka's illustrations</title>
+    <title>ilyamokka's portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <script src="picture-card.js"></script>
@@ -12,8 +12,8 @@
   <body>
     <main>
       <div class="navbar" style="margin-top: 2vw; margin-bottom: 2vw;">
-        <!-- <a href="index.html" class="link">Home</a> -->
-         <a href="index.html">
+        <!-- <p onclick="document.getElementById('hi').scrollIntoView()" class="navbar-current">Home</p> -->
+        <a href="index.html">
          <svg
           class="navbar-current"
           
@@ -33,9 +33,10 @@
         </a>
         <a href="characters.html" class="link">Characters</a>
         <a href="environments.html" class="link">Environments</a>
-        <a href="#illustrations" class="navbar-current">Illustrations</a>
+        <a href="illustrations.html" class="link">Illustrations</a>
         <a href="ui.html" class="link">UI</a>
-        <a href="testimonials.html" class="link">Testimonials</a>
+        <a href="#testimonials" class="navbar-current">Testimonials</a>
+        <!-- <p onclick="document.getElementById('contact').scrollIntoView()" class="link">Contact</p> -->
         <a href="index.html?section=contact">
         <svg
           class="navbar-current"
@@ -50,21 +51,21 @@
         </svg>
         </a>
       </div>
-      <h1 id="illustrations" class="big" style="margin-top: 0; margin-bottom: 1vw;">Illustrations</h1>
-      <p class="paragraph">For most asset types, I try minimizing my color palettes.<br><br>Full-screen illustrations are exempt from this rule: I actively use gradient effects to create a distinct look and achieve more visual interest with little detail.</p>
-      <div class="gallery" style="margin-bottom: 10vw;">
-        <picture-card src="images/illustrations/more/sakura.png" w="35vw" rl="right" cap="Before" fs="1vw" href="itself"></picture-card>
-        <picture-card src="images/illustrations/more/flies.gif" w="35vw" rl="left" cap="After" fs="1vw" href="itself"></picture-card>
 
-        <picture-card src="images/illustrations/more/ill-1-food-stand.png" cap="Yatai" w="25vw" rl="right" href="itself"></picture-card>
-        <picture-card src="images/illustrations/abilities.gif" w="30vw" href="itself"></picture-card>
-        <picture-card src="images/meltdown-screenshake.gif" cap="AKIRA-style explosion" w="25vw" rl="left" href="itself"></picture-card>
+      <h1 id="testimonials" class="big" style="margin-top: 0; margin-bottom: 1vw;">Testimonials</h1>
+      <div style="margin-right: 10vw; margin-left: 10vw; margin-bottom: 10vw; margin-top: 1vw;">
+        <!-- <div style="display: flex; justify-content: start; margin-bottom: 5vw;">
+            <picture-card src="images/ui/branding/dailies-light-1024.png" fallback="gif" w="20vw" cap="Dailies app icon" href="itself"></picture-card>
+            <p class="small" style="text-align:left;">Lorem ipsum dolor sit amet.<br><b style="font-size: var(--smaller-text-size);">Tommy Atkins, ACME Inc.</b></p>
+        </div>
 
-        <picture-card src="images/illustrations/more/eye-in-the-sky.png" w="50vw" href="itself"></picture-card>
-
-        <!-- <picture-card src="images/illustrations/more/trailer-logos4.png" w="35vw" rl="right" href="itself"></picture-card>
-        <picture-card src="images/illustrations/more/mespa-slideshow-updated.png" w="35vw" rl="left" href="itself"></picture-card> -->
+        <div style="display: flex; justify-content: end; margin-bottom: 5vw;">
+            <p class="small" style="text-align:right;">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.<br><b style="font-size: var(--smaller-text-size);">Tommy Atkins, ACME Inc.</b></p>
+            <picture-card src="images/characters/actions/hit.gif" fallback="gif" w="30vw" cap="Dailies app icon" href="itself"></picture-card>
+        </div> -->
+        <p class="small" style="text-align:center;">Working with ilyamokka was an outstanding experience. Communication was consistent throughout the project, and the quality of his work was exceptional.<br><br>ilyamokka is a true artist—proactive, highly skilled, and always willing to offer valuable advice and creative input during the process. I highly recommend him and look forward to working with him again in the future.<br><b style="font-size: var(--smaller-text-size);">F.M. Ayotte - BytesShot</b></p>
       </div>
+      
       <p class="small">© 2020-2026 ilyamokka. All rights reserved.</p>
     </main>
   </body>
