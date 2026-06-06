@@ -97,32 +97,41 @@ window.addEventListener('beforeunload', () => {
 
 function waitForAllVideos() {
   // 1. Gather all video elements currently in the DOM
-  const videos = Array.from(document.querySelectorAll('video'));
+  const videos = Array.from(document.querySelectorAll('video'))
+  const images = Array.from(document.querySelectorAll('img'))
 
-  if (videos.length === 0) {
-    return Promise.resolve(); // No videos found, resolve immediately
+  if (videos.length === 0 && images.length === 0) {
+    return Promise.resolve();
   }
 
-  // 2. Map each video element to a Promise
   const videoPromises = videos.map((video) => {
     return new Promise((resolve) => {
-      // If the video has already loaded past the first frame, resolve instantly
       if (video.readyState >= 4) {
         resolve();
       } else {
-        // Otherwise, wait for the 'loadeddata' event to fire
         video.addEventListener('loadeddata', () => {
           resolve();
-        }, { once: true }); // Automatically removes event listener after execution
+        }, { once: true });
 
-        // Optional: Error handling if the video fails to load
         video.addEventListener('error', () => {
-          resolve(); // Resolve anyway to avoid breaking Promise.all block
+          resolve();
         }, { once: true });
       }
     });
   });
 
-  // 3. Return a combined Promise that resolves when all conditions are met
+  const imagePromises = images.map((image) => {
+    return new Promise((resolve) => {
+      if (image.complete) {
+        resolve();
+      } else {
+        img.addEventListener('load', resolve(), { once: true });
+        img.addEventListener('error', resolve(), { once: true });
+      }
+    });
+  });
+
+  videoPromises.push(...imagePromises)
+  console.log(videoPromises)
   return Promise.all(videoPromises);
 }
