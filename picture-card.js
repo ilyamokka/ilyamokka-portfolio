@@ -72,22 +72,7 @@ class PictureCard extends HTMLElement {
 }
 customElements.define('picture-card', PictureCard);
 
-window.addEventListener('pageshow', (event) => {
-  const previousPage = sessionStorage.getItem('previous_local_page');
-  const targetPage = '/specific-page-path'; // Replace with your target path
-
-  if (previousPage === targetPage) {
-    // 1. Put your custom JavaScript behavior here
-    console.log('User returned from the specific page!');
-    
-    // 2. Optional: Clear the value so it does not trigger on a normal refresh
-    sessionStorage.removeItem('previous_local_page');
-  }
-});
-
 window.addEventListener('load', async () => {
-        console.log('Page loaded')
-
         const previousPage = sessionStorage.getItem('previous_local_page');
         const split = previousPage.split('/')
 
@@ -99,8 +84,6 @@ window.addEventListener('load', async () => {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         let section = urlParams.get('section');
-
-        console.log(section)
 
         if (section) {
                 await waitForAllVideos()
@@ -115,8 +98,6 @@ window.addEventListener('beforeunload', () => {
 function waitForAllVideos() {
   // 1. Gather all video elements currently in the DOM
   const videos = Array.from(document.querySelectorAll('video'));
-  
-  console.log(videos)
 
   if (videos.length === 0) {
     return Promise.resolve(); // No videos found, resolve immediately
@@ -126,19 +107,16 @@ function waitForAllVideos() {
   const videoPromises = videos.map((video) => {
     return new Promise((resolve) => {
       // If the video has already loaded past the first frame, resolve instantly
-      if (video.readyState >= 4) { 
-        console.log("resolved")
+      if (video.readyState >= 4) {
         resolve();
       } else {
         // Otherwise, wait for the 'loadeddata' event to fire
         video.addEventListener('loadeddata', () => {
-          console.log("loaded")
           resolve();
         }, { once: true }); // Automatically removes event listener after execution
 
         // Optional: Error handling if the video fails to load
         video.addEventListener('error', () => {
-        console.log("error")
           resolve(); // Resolve anyway to avoid breaking Promise.all block
         }, { once: true });
       }
@@ -148,25 +126,3 @@ function waitForAllVideos() {
   // 3. Return a combined Promise that resolves when all conditions are met
   return Promise.all(videoPromises);
 }
-
-(function removeAddressBar(){
-        const isMobile = window.matchMedia("(pointer: coarse)").matches;
-        const isLandscape = window.matchMedia("(orientation: landscape)").matches;
-
-        if (!isMobile || !isLandscape) return;
-
-        console.log("Mobile+landscape detected. Removing address bar.")
-
-        // Make sure it really scrolls down.
-        window.scrollTo(0, 10);
-
-        // Set a timeout to check that it has scrolled down.
-        setTimeout(function() { 
-        if(window.scrollY == 0) { 
-                removeAddressBar();
-        }else{
-                window.scrollTo(0, 1);
-                //launch();
-        }
-        }, 500);
-})(this)
