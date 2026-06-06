@@ -86,8 +86,8 @@ window.addEventListener('load', async () => {
         let section = urlParams.get('section');
 
         if (section) {
-                await waitForAllVideos()
-                document.getElementById(section).scrollIntoView()
+                // await waitForAllVideos()
+                setTimeout(document.getElementById(section).scrollIntoView(), 150)
         }
 });
 
@@ -99,6 +99,9 @@ function waitForAllVideos() {
   // 1. Gather all video elements currently in the DOM
   const videos = Array.from(document.querySelectorAll('video'))
   const images = Array.from(document.querySelectorAll('img'))
+
+  console.log(videos)
+  console.log(images)
 
   if (videos.length === 0 && images.length === 0) {
     return Promise.resolve();
