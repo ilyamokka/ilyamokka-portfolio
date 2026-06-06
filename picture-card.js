@@ -84,14 +84,16 @@ window.addEventListener('load', async () => {
                 }
         }
 
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        let section = urlParams.get('section');
+        setTimeout(async () => {
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                let section = urlParams.get('section');
 
-        if (section) {
-                // await waitForAllVideos()
-                setTimeout(document.getElementById(section).scrollIntoView(), 150)
-        }
+                if (section) {
+                        await waitForAllVideos()
+                        document.getElementById(section).scrollIntoView()
+                }
+        }, 150)
 });
 
 window.addEventListener('beforeunload', () => {
