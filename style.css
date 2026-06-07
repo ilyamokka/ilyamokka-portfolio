@@ -30,6 +30,7 @@
   /* --theme-color: #b5ad08; */
   --theme-color: lightgreen;
   --shadow-color: rgba(5, 5, 20, 1);
+  --gap-5vw: 5vw;
 }
 
 @media screen and (min-width: 800px) and (max-width: 1200px) {
@@ -53,6 +54,10 @@
       --navbar-padding-top: 5vw;
       --navbar-padding-bottom: 4vw;
       --navbar-row-gap: 3vw;
+      --gap-5vw: 0;
+    }
+    img[style] {
+      width: fill !important;
     }
 }
 
@@ -65,8 +70,11 @@
       --navbar-padding-top: 7vw;
       --navbar-padding-bottom: 6vw;
       --navbar-row-gap: 4vw;
+      --gap-5vw: 0;
     }
-    
+    img[style] {
+      width: fill !important;
+    }
 }
 
 .navbar {
@@ -381,11 +389,11 @@ h2 {
 .gallery {
   display: flex;
   justify-content: space-around;
-  row-gap: 5vw;
+  row-gap: var(--gap-5vw);
   align-items: center;
   flex-wrap: wrap;
-  padding-right: 5vw;
-  padding-left: 5vw;
+  padding-right: var(--gap-5vw);
+  padding-left: var(--gap-5vw);
 }
 
 .image-card {
