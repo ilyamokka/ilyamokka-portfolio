@@ -199,8 +199,9 @@
 
         if (name === "myself") document.querySelectorAll("picture-card").forEach(card => {
             card.setAttribute('href', '');
-            card.addEventListener('click', () => {
-                navigator.clipboard.writeText(navigator.clipboard.readText() + card.getAttribute('id'));
+            card.addEventListener('click', async () => {
+                let text = await navigator.clipboard.readText()
+                navigator.clipboard.writeText(text + card.getAttribute('id'));
             });
             card.setAttribute('cap', card.getAttribute('id'));
             card.classList.remove('hidden');
