@@ -38,6 +38,7 @@ class PictureCard extends HTMLElement {
                                 if (href) this.innerHTML = `
                                         <style>#${filename} {
                                                 width: ${width};
+                                                height: ${height};
                                                 display:block;
                                         }</style>
 
@@ -51,6 +52,7 @@ class PictureCard extends HTMLElement {
                                 else this.innerHTML = `
                                 <style>#${filename} {
                                         width: ${width};
+                                        height: ${height};
                                         display:block;
                                 }</style>
                                 

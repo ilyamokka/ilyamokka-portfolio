@@ -11,9 +11,9 @@
   </head>
   <body>
     <main>
-        <p class="btn" style="z-index: 9999999; width:fit-content;height:fit-content;position:fixed; top:2vh; left:5vw;" onclick="history.back()">✖</p>
-        <p class="btn-right" style="margin: 0; z-index: 9999999; width: fit-content;height:fit-content;position:fixed; top:48vh; left:0vw; padding-left: 5vw;padding-right: 5vw;" onclick="move(-1)">❮</p>
-        <p class="btn-left" style="margin: 0; z-index: 9999999; width: fit-content;height:fit-content;position:fixed; top:48vh; right:0vw; padding-left: 5vw; padding-right: 5vw;" onclick="move(1)">❯</p>
+        <p id="exit" class="btn" style="z-index: 9999999; width:fit-content;height:fit-content;position:fixed; top:2vh; left:5vw;" onclick="history.back()">✖</p>
+        <p id="next" class="btn-right" style="margin: 0; z-index: 9999999; width: fit-content;height:fit-content;position:fixed; top:48vh; left:0vw; padding-left: 5vw;padding-right: 5vw;" onclick="move(-1)">❮</p>
+        <p id="previous" class="btn-left" style="margin: 0; z-index: 9999999; width: fit-content;height:fit-content;position:fixed; top:48vh; right:0vw; padding-left: 5vw; padding-right: 5vw;" onclick="move(1)">❯</p>
 
         <div id="dots" style="margin: 0; z-index: 9999999; width: fit-content; height:var(--big-text-size);position:fixed; bottom: var(--navbar-padding-bottom); right:50vw; padding-bottom: 0vw; transform: translateX(50%); display: flex; justify-content: center; align-items: center;">
             <p id="0" class="dot" onclick="moveTo(0)">⬤</p>
@@ -89,6 +89,14 @@
                 }
                 if (i >= images.length || images.length < 2) dots[i].classList.add('hidden')
                 else dots[i].classList.remove('hidden')
+            }
+
+            if (images.length < 2) {
+                document.getElementById('next').classList.add('hidden');
+                document.getElementById('previous').classList.add('hidden');
+            } else {
+                document.getElementById('next').classList.remove('hidden');
+                document.getElementById('previous').classList.remove('hidden');
             }
         }
 

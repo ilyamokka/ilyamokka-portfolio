@@ -54,11 +54,11 @@
       --navbar-padding-top: 5vw;
       --navbar-padding-bottom: 4vw;
       --navbar-row-gap: 3vw;
-      --gap-5vw: 0;
+      /* --gap-5vw: 0; */
     }
-    img[style] {
+    /* img[style] {
       width: fill !important;
-    }
+    } */
 }
 
 @media screen and (max-width: 400px) {
@@ -70,11 +70,11 @@
       --navbar-padding-top: 7vw;
       --navbar-padding-bottom: 6vw;
       --navbar-row-gap: 4vw;
-      --gap-5vw: 0;
+      /* --gap-5vw: 0; */
     }
-    img[style] {
+    /* img[style] {
       width: fill !important;
-    }
+    } */
 }
 
 .navbar {
