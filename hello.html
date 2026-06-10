@@ -198,6 +198,8 @@
         if (showArr.length === 2) quantityModifier = " are a couple of examples"
 
         if (name === "myself") document.querySelectorAll("picture-card").forEach(card => {
+            navigator.clipboard.writeText('');
+
             card.setAttribute('href', '');
             card.addEventListener('click', async () => {
                 let text = await navigator.clipboard.readText()
