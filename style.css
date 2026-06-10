@@ -298,7 +298,7 @@ img {
 
 .inline-link:active {
   top: 0.3vw;
-  font-size: 1.8vw;
+  font-size: 0.7lh;
   opacity: 0.5;
 }
 
