@@ -15,7 +15,7 @@
 
 @font-face {
   font-family: Noyh;
-  src: url(fonts/Noyh.otf);
+  src: url(fonts/NoyhBold.otf);
 }
 
 :root {
@@ -101,6 +101,7 @@
 
 html {
   background-color: #171826;
+  overflow-x: hidden;
 }
 
 b {

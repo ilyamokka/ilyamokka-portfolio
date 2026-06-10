@@ -25,7 +25,7 @@ class PictureCard extends HTMLElement {
                                 
                                 Array.from(this.parentElement.childNodes).filter(child => child.nodeName === "PICTURE-CARD").forEach(element => {
                                         if (element.getAttribute("src") === this.getAttribute("src")) currentIndex = index;
-                                        images = images + "src" + index++ + "=" + element.getAttribute("src") + "&"
+                                        if (!Array.from(element.classList).includes('hidden')) images = images + "src" + index++ + "=" + element.getAttribute("src") + "&"
                                 });
                                 href = `view.html${images}currentIndex=${currentIndex}`
                         
@@ -35,7 +35,7 @@ class PictureCard extends HTMLElement {
                                 const path = src.split('/')
                                 const filename = path[path.length - 1].split('.')[0]
 
-                                if (href) this.innerHTML = `
+                                if (href && href.length > 0) this.innerHTML = `
                                         <style>#${filename} {
                                                 width: ${width};
                                                 height: ${height};
@@ -58,7 +58,7 @@ class PictureCard extends HTMLElement {
                                 
                                 <div class="image-card move-${rl}" style="display:block;margin:auto;width: fit-content;height: fit-content;"><video id="${filename}" style="width: ${width};object-fit:contain;margin:auto;display:block;" loop autoplay muted playsinline><source src="${src}" type="video/mp4"/><picture-card src="${src.split('.')[0]}.${fallback}" w="${width}" h="${height}" bg="${color}" cap="${caption}${enlarge}" rl="${rl}"></picture-card></video><p class="image-text centered-at-the-bottom" background-color:${color};">${caption}${enlarge}</p></div>`
                         } else {
-                                if (href) this.innerHTML = `<div class="image-card move-${rl}" style="display:block;margin:auto;width: fit-content;
+                                if (href && href.length > 0) this.innerHTML = `<div class="image-card move-${rl}" style="display:block;margin:auto;width: fit-content;
                         height: fit-content;"><a href="${href}"><img src="${src}" style="width: ${width}; height: ${height};object-fit:contain;margin:auto;"></a><p class="image-text centered-at-the-bottom" background-color:${color};">${caption}${enlarge}</p></div>`;
                                 else this.innerHTML = `<div class="image-card move-${rl}" style="display:block;margin:auto;width: fit-content;
                         height: fit-content;"><img src="${src}" style="width: ${width}; height: ${height};margin:auto;display:block;object-fit:contain;"><p class="image-text centered-at-the-bottom" background-color:${color};">${caption}${enlarge}</p></div>`;
@@ -69,7 +69,7 @@ class PictureCard extends HTMLElement {
 
         setAttribute(name, value) {
                 super.setAttribute(name, value)
-                if (name === "src") this.connectedCallback()
+                if (name === "src" || name === "cap") this.connectedCallback()
         }
 }
 customElements.define('picture-card', PictureCard);
