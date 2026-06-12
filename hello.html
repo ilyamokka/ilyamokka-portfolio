@@ -194,6 +194,12 @@
 
         let showArr = show.split('');
         for (let i = 0; i < showArr.length; i++) document.getElementById(showArr[i]).classList.remove('hidden');
+
+        let imgArr = document.querySelectorAll('picture-card');
+        for (let i = 0; i < imgArr.length; i++) {
+            if (Array.from(imgArr[i].classList).includes('hidden')) imgArr[i].setAttribute('src', '');
+        }
+
         if (showArr.length === 1) quantityModifier = " is an example"
         if (showArr.length === 2) quantityModifier = " are a couple of examples"
 
