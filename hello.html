@@ -197,7 +197,7 @@
 
         let imgArr = document.querySelectorAll('picture-card');
         for (let i = 0; i < imgArr.length; i++) {
-            if (Array.from(imgArr[i].classList).includes('hidden')) imgArr[i].setAttribute('src', '');
+            if (Array.from(imgArr[i].classList).includes('hidden') && name != 'myself') imgArr[i].setAttribute('src', '');
         }
 
         if (showArr.length === 1) quantityModifier = " is an example"
