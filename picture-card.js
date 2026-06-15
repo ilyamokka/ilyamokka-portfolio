@@ -63,6 +63,8 @@ class PictureCard extends HTMLElement {
                                 else this.innerHTML = `<div class="image-card move-${rl}" style="display:block;margin:auto;width: fit-content;
                         height: fit-content;"><img src="${src}" style="width: ${width}; height: ${height};margin:auto;display:block;object-fit:contain;"><p class="image-text centered-at-the-bottom" background-color:${color};">${caption}${enlarge}</p></div>`;
                         }
+                
+                        // if (!height) this.innerHTML += "<p style='color:red;'>BRUH</p>";
                 }, 0)
                 
         }
@@ -86,16 +88,21 @@ window.addEventListener('load', async () => {
                 }
         }
 
-        setTimeout(async () => {
-                const queryString = window.location.search;
-                const urlParams = new URLSearchParams(queryString);
-                let section = urlParams.get('section');
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        let section = urlParams.get('section');
+        document.getElementById(section).scrollIntoView()
 
-                if (section) {
-                        await waitForAllVideos()
-                        document.getElementById(section).scrollIntoView()
-                }
-        }, 150)
+        // setTimeout(async () => {
+        //         const queryString = window.location.search;
+        //         const urlParams = new URLSearchParams(queryString);
+        //         let section = urlParams.get('section');
+
+        //         if (section) {
+        //                 await waitForAllVideos()
+        //                 document.getElementById(section).scrollIntoView()
+        //         }
+        // }, 150)
 });
 
 window.addEventListener('beforeunload', () => {
