@@ -1,21 +1,21 @@
 @font-face {
-  font-family: OutfitRegular;
+  font-family: ParagraphFontRegular;
   src: url(fonts/Gabarito-Regular.ttf);
 }
 
 @font-face {
-  font-family: OutfitBold;
+  font-family: ParagraphFontBold;
   src: url(fonts/Outfit-ExtraBold.ttf);
 }
 
 @font-face {
-  font-family: Skyfall;
-  src: url(fonts/SkyFall\ Done.ttf);
+  font-family: CityFont;
+  src: url(fonts/VinaSans-Regular.ttf);
 }
 
 @font-face {
-  font-family: Noyh;
-  src: url(fonts/NoyhBold.otf);
+  font-family: TitleFont;
+  src: url(fonts/Alata-Regular.ttf);
 }
 
 :root {
@@ -105,7 +105,7 @@ html {
 }
 
 b {
-    font-family: OutfitBold !important;
+    font-family: ParagraphFontBold !important;
 }
 
 img {
@@ -199,7 +199,7 @@ img {
 }
 
 .image-text {
-  font-family: OutfitRegular;
+  font-family: ParagraphFontRegular;
   font-size: var(--smaller-text-size);
   color: white;
   text-decoration: none;
@@ -209,7 +209,7 @@ img {
 }
 
 .small {
-    font-family: OutfitRegular;
+    font-family: ParagraphFontRegular;
     font-size: 48px;
     font-size: var(--small-text-size);
     color: white;
@@ -224,7 +224,7 @@ img {
 }
 
 .paragraph {
-    font-family: OutfitRegular;
+    font-family: ParagraphFontRegular;
     font-size: 48px;
     font-size: var(--small-text-size);
     color: white;
@@ -236,7 +236,7 @@ img {
 }
 
 .link {
-    font-family: OutfitRegular;
+    font-family: ParagraphFontRegular;
     font-size: 48px;
     font-size: var(--small-text-size);
     color: white;
@@ -261,7 +261,7 @@ img {
 }
 
 .navbar-current {
-    font-family: OutfitRegular;
+    font-family: ParagraphFontRegular;
     font-size: 48px;
     font-size: var(--small-text-size);
     color: var(--theme-color);
@@ -367,7 +367,7 @@ img {
 }
 
 .big {
-    font-family: Noyh;
+    font-family: TitleFont;
     font-size: 96px;
     font-size: var(--big-text-size);
     color: white;
@@ -376,15 +376,17 @@ img {
     margin-top: 8vw;
     margin-bottom: 4vw;
     text-transform: uppercase;
+    letter-spacing: 0.4vw;
 }
 
 h2 {
-  font-family: Noyh;
+  font-family: TitleFont;
   font-size: 3vw;
   color: white;
   scroll-margin-top: 0.6lh;
   text-align: left;
   padding-left: 5vw;
+  letter-spacing: 0.4vw;
 }
 
 .gallery {
@@ -412,11 +414,23 @@ h2 {
   text-align: center;
 }
 
+.image {
+  width: 60vw;
+}
+
+.centralized-column-extra {
+  display: flex;
+  flex-direction: column;
+  position:relative;
+  text-align: center;
+  align-items: center !important;
+}
+
 .centered {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -90%);
 }
 
 .centered-at-the-bottom {
@@ -447,7 +461,7 @@ h2 {
 
 .dot {
     height: fit-content;
-    font-family: OutfitRegular;
+    font-family: ParagraphFontRegular;
     font-size: var(--smaller-text-size);
     color: white;
     margin-right: 1vw;
@@ -468,7 +482,7 @@ h2 {
 }
 
 .dot-current {
-    font-family: OutfitRegular;
+    font-family: ParagraphFontRegular;
     font-size: var(--small-text-size);
     color: var(--theme-color);
     margin-right: 1vw;
